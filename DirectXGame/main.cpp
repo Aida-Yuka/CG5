@@ -70,16 +70,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	if (FAILED(hr))
 	{
 		DebugText::GetInstance()->ConsolePrintf(std::system_category().message(hr).c_str());
-		/*if (errorBlob)
+		if (errorBlob)
 		{
 			DebugText::GetInstance()->ConsolePrintf(reinterpret_cast<char*>(errorBlob->GetBufferPointer()));
-		}*/
-		if (FAILED(hr)) {
-			if (errorBlob) {
-				MessageBoxA(nullptr, (char*)errorBlob->GetBufferPointer(), "Shader Error", MB_OK);
-			}
-
-			assert(false);
 		}
 		assert(false);
 	}
