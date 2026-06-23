@@ -1,14 +1,17 @@
 #include "Shader.h"
+#include "MiscUtility.h"
 #include <d3dcompiler.h>
 #include <cassert>
 
 //シェーダーファイルを読み込み、コンパイルする
-void Shader::Load(const std::wstring& filePath, const std::string& shaderModel) {
+void Shader::Load(const std::wstring& filePath, const std::wstring& shaderModel) {
 	ID3DBlob* shaderBlob = nullptr;
 	ID3DBlob* errorBlob = nullptr;
 
-	HRESULT hr =
-	    D3DCompileFromFile(filePath.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", shaderModel.c_str(), D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, &shaderBlob, &errorBlob);
+	//wstirng => stirng 文字列変換
+	std::string mbShaderModel = ConvertString();
+
+	HRESULT hr = D3DCompileFromFile(filePath.c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, "main", shaderModel.c_str(), D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION, 0, &shaderBlob, &errorBlob);
 	// エラーが発生した場合、止める
 	if (FAILED(hr)) {
 		if (errorBlob) {
