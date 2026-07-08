@@ -58,6 +58,7 @@ void Shader::LoadDxc(const std::wstring& filePath, const std::wstring& shaderMod
 	// 読み込んだファイルの内容をDxcBufferに設定する
 	DxcBuffer shaderSourceBuffer{};
 	shaderSourceBuffer.Ptr = shaderSource->GetBufferPointer();
+	shaderSourceBuffer.Size = shaderSource->GetBufferSize();
 	shaderSourceBuffer.Encoding = DXC_CP_UTF8;
 
 	//===2.Compileする
