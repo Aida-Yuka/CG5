@@ -61,10 +61,7 @@ D3D12_VERTEX_BUFFER_VIEW *VertexBuffer::GetView()
 }
 
 //コンストラクタ
-VertexBuffer::VertexBuffer()
-{
-
-}
+VertexBuffer::VertexBuffer() {}
 
 //デストラクタ
 VertexBuffer::~VertexBuffer()
