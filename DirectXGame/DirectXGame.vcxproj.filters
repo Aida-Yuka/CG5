@@ -95,6 +95,7 @@
       <Filter>シェーダー ファイル</Filter>
     </None>
     <None Include=".editorconfig" />
+    <None Include="Resources\shaders\Test.hlsli" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
