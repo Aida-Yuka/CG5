@@ -19,7 +19,7 @@ Matrix4x4 WorldTransformEx::MakeAffineMatrix()  {
 	//Rotation Matrix
 	Matrix4x4 matRotX = MakeRotateXMatrix(rotation_.x);
 	Matrix4x4 matRotY = MakeRotateYMatrix(rotation_.y);
-	Matrix4x4 matRotZ = MakeRotateZMatrix(rotation_.x);
+	Matrix4x4 matRotZ = MakeRotateZMatrix(rotation_.z);
 	Matrix4x4 matRot = matRotZ * matRotX * matRotY;
 
 	//Translate Matrix
