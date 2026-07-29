@@ -1,5 +1,8 @@
 #include "Test.hlsli"
 
+Texture2D<float4> gTexture : register(t0); //SRV     register => t
+SamplerState gSampler : register(s0);       //Sampler register => s
+
 struct PixelShaderOutput
 {
 	float4 color : SV_TARGET0;
@@ -8,10 +11,11 @@ struct PixelShaderOutput
 PixelShaderOutput main(VertexShaderOutput input)
 {
 	PixelShaderOutput output;
+	
 	float2 uv = input.texcoord;
+	float4 textureColor = gTexture.Sample(gSampler,uv);
 
-	//位置セット(x y z w)か、カラーセット(r g b a)でアクセス出来る
-	output.color = float4(uv.x, uv.y, 0.0f, 0.0f);
+	output.color = textureColor; //non effect
 
 	return output;
 }

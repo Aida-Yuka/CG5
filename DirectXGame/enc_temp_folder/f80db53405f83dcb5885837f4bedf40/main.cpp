@@ -327,14 +327,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	);
 
 	// メインループ
-	while (true)
-	{
+	while (true){
 		// エンジンの更新
-		if (KamataEngine::Update()){
+		if (KamataEngine::Update()) {
 			break;
 		}
 		
-		///===ここに描画処理を記述する===///
+		///// ここに描画処理を記述する///
 
 		//TransitionBarrierをSRV⇒RTVに設定する
 		D3D12_RESOURCE_BARRIER barrier{};
@@ -385,6 +384,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
 		commandList->ResourceBarrier(1, &barrier);
 
+		
 		// 描画開始
 		dxCommon->PreDraw();
 
